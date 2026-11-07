@@ -1,0 +1,75 @@
+/* Planarcadia lobby: keep scenery behind the controls and allow every column to shrink. */
+.menu-sketch {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  background: #10131e;
+}
+.menu-sketch::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  top: 0;
+  right: 0;
+  width: min(100%, 1100px);
+  height: 520px;
+  background: linear-gradient(0deg, #10131e, #10131e00 80%),
+    linear-gradient(90deg, #10131e, #10131e55 65%, #10131e33),
+    url('assets/planarcadia.jpeg') right top / cover no-repeat;
+  opacity: .62;
+}
+.brand-icon.jade-icon { display: block; width: 44px; height: 44px; flex: 0 0 44px; object-fit: contain; }
+.menu-sketch .lobby-top { min-height: 96px; height: auto; padding: 20px 0; gap: 24px; }
+.menu-sketch .lobby-top .brand { min-width: 0; gap: 12px; line-height: 1.25; letter-spacing: 1.5px; }
+.menu-sketch .brand small { margin-top: 7px; line-height: 1.5; letter-spacing: 1.6px; }
+.menu-sketch .lobby-tools { flex-shrink: 0; gap: 12px; }
+.menu-sketch .lobby-tools button { padding: 9px 16px; border: 1px solid #d6c8e033; background: #101725bb; }
+.menu-sketch .lobby-tools > span { padding: 9px 12px; border: 1px solid #d6c8e026; border-radius: 5px; background: #101725bb; letter-spacing: 1px; }
+.menu-sketch .lobby-intro { gap: 20px; padding: 30px 0; }
+.menu-sketch .mode-cards { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.menu-sketch .mode-card h3 { font-size: clamp(19px, 1.7vw, 25px); overflow-wrap: anywhere; }
+.menu-sketch .mode-card > small { display: block; line-height: 1.6; }
+.party-and-gear > *, .gear-shortcut-icons, .menu-sketch .lobby-team { min-width: 0; }
+.party-and-gear .gear-shortcut { padding: 24px; gap: 0; background: linear-gradient(145deg, #2b3244ee, #151b28f2); }
+.gear-shortcut h2 { line-height: 1.2; overflow-wrap: anywhere; }
+.gear-shortcut-icons { width: 100%; gap: 10px; margin: 20px 0; }
+.gear-shortcut-icons > button { min-height: 90px; padding: 12px 8px; border-radius: 5px; }
+.gear-shortcut-icons > .lobby-slot-choice { gap: 8px; }
+.gear-shortcut > button { width: 100%; padding: 16px 38px 16px 16px; }
+.gear-shortcut > button > span { top: 50%; transform: translateY(-50%); }
+.menu-sketch .menu-start-area { width: 100%; max-width: 540px; }
+@media (max-width: 1050px) {
+  .menu-sketch .lobby-top { flex-wrap: wrap; gap: 16px; }
+  .menu-sketch .lobby-tools { margin-left: auto; }
+  .menu-sketch .mode-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .party-and-gear { grid-template-columns: minmax(0, 1fr) 260px; gap: 16px; }
+}
+@media (max-width: 760px) {
+  .party-and-gear { grid-template-columns: minmax(0, 1fr); }
+  .party-and-gear .gear-shortcut { display: flex; padding: 20px; }
+  .gear-shortcut-icons { grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 16px 0; }
+  .menu-sketch .lobby-top .brand { font-size: 18px; }
+  .menu-sketch .lobby-tools > span { display: inline-block; font-size: 10px; }
+  .menu-sketch .lobby-tools { width: 100%; justify-content: space-between; }
+  .menu-sketch .lobby-team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .menu-sketch .portrait-only .party-art-button { height: 240px; }
+  .menu-mode-label { gap: 10px; flex-wrap: wrap; }
+}
+@media (max-width: 480px) {
+  .menu-sketch { padding: 0 16px; }
+  .menu-sketch .mode-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; gap: 10px; }
+  .menu-sketch .mode-card, .menu-sketch .mode-card:last-child { min-height: 132px; padding: 16px 12px; }
+  .menu-sketch .mode-card:last-child { grid-column: 1 / -1; }
+  .menu-sketch .mode-card h3 { font-size: 21px; min-height: 0; }
+  .menu-sketch .mode-card > small { font-size: 11px; }
+  .menu-sketch .mode-number { font-size: 9px; margin-bottom: 14px; }
+  .menu-sketch .lobby-intro { flex-wrap: wrap; }
+  .menu-sketch .lobby-intro h1 { font-size: 30px; }
+  .menu-sketch .brand small { font-size: 8px; letter-spacing: 1px; }
+  .party-selection { padding: 14px; }
+  .menu-sketch .portrait-only .party-art-button { height: 205px; }
+  .menu-sketch .lobby-footer { flex-wrap: wrap; gap: 8px; }
+  .menu-sketch .lobby-footer span:last-child { max-width: none; text-align: left; }
+}

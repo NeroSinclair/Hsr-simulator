@@ -41,8 +41,8 @@ assert.ok(run("allowedLightCones(roster.find(c=>c.path==='Remembrance')).length>
 run("openTeam(2,'relic')");assert.equal(run('buildSlot'),2);
 assert.ok(!get('buildPanel').innerHTML.includes('id="stat-atk"'));
 assert.equal((get('buildPanel').innerHTML.match(/class="piece-editor /g)||[]).length,6);
-assert.equal((get('buildPanel').innerHTML.match(/class="piece-sub"/g)||[]).length,24);
-run("openGearPicker('relic','head');chooseGalleryGear('102');");get('piece-sub-head-0').value='critRate';get('piece-value-head-0').value='3.24';
+assert.equal((get('buildPanel').innerHTML.match(/class="piece-sub enhancement-sub /g)||[]).length,24);
+run("openGearPicker('relic','head');chooseGalleryGear('102');handleEnhancementChange({dataset:{enhanceSlot:'head',enhanceField:'tier',enhanceIndex:'0'},value:'2'});");
 run('readBuildPanel()');assert.equal(run('buildDraft[2].build.items[0].subs[0].value'),3.24);
 get('saveTeam').onclick();assert.equal(run('teamConfig[2].build.items[0].set'),'102');
 assert.ok(get('lobbyTeam').innerHTML.includes('party-art-button'));
@@ -86,7 +86,7 @@ run("openTeam(0);openGearPicker('relic','pair-a');chooseGalleryGear('114');openG
 assert.equal(run('fullSetBonus(mixedChar,mixedBuild).spdPct'),12);
 assert.equal(run('mixedBuild.pieces'),2);
 assert.equal(run("Object.keys(setCounts(mixedBuild,'relic')).length"),2);
-assert.ok(Math.abs(run('computeStats(mixedChar,mixedBuild).spd-lockedBase(mixedChar).spd*1.12'))<1e-7);
+assert.ok(Math.abs(run('computeStats(mixedChar,mixedBuild).spd-lockedBase(mixedChar).spd*1.12-(allPieceBonus(mixedChar,mixedBuild).spdFlat||0)'))<1e-7);
 run("var remembrance=roster.find(c=>c.path==='Remembrance');var speedBuild=defaultBuild(remembrance);speedBuild.lc='23036';for(var piece of speedBuild.items.slice(0,2))piece.set='114';deriveSetAliases(speedBuild);");
 assert.ok(Math.abs(run('computeStats(remembrance,speedBuild).spd-(lockedBase(remembrance).spd+12)*1.06'))<1e-7,'base SPD LC bonus is amplified by relic SPD%');
 run("openGearPicker('relic','all');chooseGalleryGear('121');");
@@ -94,7 +94,7 @@ assert.equal(run('fullSetBonus(draftCharacter(),buildDraft[0].build).spdPct'),6,
 assert.ok(run('completeLightConeData.every(l=>{const c=roster.find(c=>c.path===l.path),b=defaultBuild(c);b.lc=l.id;return Object.values(computeStats(c,b)).every(Number.isFinite);})'));
 assert.ok(!get('buildPanel').innerHTML.includes('piece-set-'));
 assert.ok(!get('buildPanel').innerHTML.includes('data-quick-set'));
-assert.equal((get('buildPanel').innerHTML.match(/class="piece-sub"/g)||[]).length,24);
+assert.equal((get('buildPanel').innerHTML.match(/class="piece-sub enhancement-sub /g)||[]).length,24);
 assert.ok(!get('lobbyTeam').innerHTML.includes('data-menu-character'));
 assert.ok(!get('lobbyTeam').innerHTML.includes('party-loadout-icons'));
 assert.ok(get('gearShortcutIcons').innerHTML.includes('data-lobby-gear="character"'));
@@ -119,3 +119,4 @@ assert.equal(run('computeStats(sw,defaultBuild(sw),{ehr:120}).dmg'),72);
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length);
 assert.ok(html.includes('party-and-gear')&&html.includes('menu-start-area'));
 console.log('Passed: 93 locked character bases, six piece main/substats, set thresholds, Path LC filter, visual menu/editor, validation, automatic trace parsing and battle snapshot isolation.');
+module.exports={run,get,clickListeners,context,html};

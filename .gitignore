@@ -1,4 +1,7 @@
 .preview-profile/
+.preview-equipment/
+.equipment-browser-check.html
+equipment-preview-dom.html
 node_modules/
 .env
 .env.*

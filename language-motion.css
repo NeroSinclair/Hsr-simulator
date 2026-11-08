@@ -26,6 +26,7 @@ dialog[open]::backdrop { animation:stellar-backdrop .22s ease-out both; }
 @keyframes stellar-dialog { from { opacity:0; transform:translateY(35px) scale(.94); } to { opacity:1; transform:translateY(0) scale(1); } }
 @keyframes stellar-backdrop { from { opacity:0; } to { opacity:1; } }
 @media(max-width:600px) {
+ .menu-sketch .lobby-top .lobby-tools { width:100%; min-width:0; box-sizing:border-box; justify-self:stretch; justify-content:center; flex-wrap:wrap; gap:12px 16px; padding:8px 8px 12px; }
  .language-picker { gap:5px; padding:5px 7px; }
  .language-picker select { min-width:112px; max-width:118px; }
  header nav .language-picker .language-caption { display:none; }

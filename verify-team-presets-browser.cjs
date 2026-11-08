@@ -2,13 +2,20 @@
 const fs=require('node:fs'),path=require('node:path');
 const {pathToFileURL}=require('node:url');
 const exec=require('node:util').promisify(require('node:child_process').execFile);
-const root=__dirname,fixture=path.join(root,'.preset-browser-check.html');
-const mobile=process.argv[2]==='mobile',profile=path.join(root,'.preview-equipment','presets-'+(mobile?'mobile':'desktop'));
+const root=__dirname,fixture=path.join(root,'.preset-browser-check-'+(process.argv[2]==='mobile'?'mobile':'desktop')+'.html');
+const mobile=process.argv[2]==='mobile',profile=path.join(root,'.preview-equipment','presets-'+(mobile?'mobile':'desktop')+'-'+process.pid);
 const checks=`<script>
 try{
  const must=(ok,msg)=>{if(!ok)throw new Error(msg);};
  const change=(id,value,type='change')=>{const node=document.getElementById(id);must(node,'Missing '+id);node.value=value;node.dispatchEvent(new Event(type,{bubbles:true}));};
  const click=selector=>{const node=document.querySelector(selector);must(node,'Missing '+selector);node.click();};
+ const header=document.querySelector('.lobby-top'),logo=header.querySelector('.stellar-wordmark');
+ const logoRect=logo.getBoundingClientRect(),headRect=header.getBoundingClientRect();
+ must(logoRect.width>=200&&logoRect.height>50,'Header logo squeezed or hidden');
+ must(logoRect.left>=headRect.left&&logoRect.left-headRect.left<30,'Logo not at header left');
+ const guideRect=document.getElementById('lobbyGuideBtn').getBoundingClientRect(),versionRect=document.querySelector('.version-picker').getBoundingClientRect();
+ must(guideRect.right<=versionRect.left&&Math.abs(guideRect.top-versionRect.top)<15,'Guide must sit beside version');
+ must(header.scrollWidth<=header.clientWidth+1,'Header overflows');
  const partyBefore=JSON.stringify(teamConfig);
  click('#teamPresetBtn');must(document.getElementById('presetTeamDialog').open,'Dialog not open');
  must(document.querySelectorAll('[data-team-preset]').length===teamPresets.length,'Preset cards missing');
@@ -25,16 +32,22 @@ try{
  click('[data-team-preset="rem-mono"]');must(JSON.stringify(teamConfig)===partyBefore,'Selection mutated party');
  click('[data-preset-slot="1"]');
  change('preset-relic','127+113');change('preset-lc','24005');change('preset-superimposition','3');
+ change('preset-eidolon','4');
+ must(document.querySelectorAll('.eidolon-detail').length===6,'Six Eidolon descriptions missing');
+ must(document.querySelectorAll('.eidolon-detail.is-unlocked').length===4,'Cumulative unlock state wrong');
+ must([...document.querySelectorAll('.eidolon-detail img')].every(img=>img.getAttribute('src').startsWith('assets/eidolons/')),'Local icons missing');
  click('[data-preset-slot="0"]');click('[data-preset-slot="1"]');
  must(document.getElementById('preset-relic').value==='127+113','Gear reset on character tab');
  must(document.getElementById('preset-lc').value==='24005','LC reset on character tab');
  must(document.getElementById('preset-superimposition').value==='3','SI reset on tab');
+ must(document.getElementById('preset-eidolon').value==='4','Eidolon reset on tab');
  click('[data-preset-action="next"]');click('[data-preset-action="next"]');click('[data-preset-action="next"]');
  must(document.querySelectorAll('.preset-review-grid article').length===4,'Review missing');
  must(JSON.stringify(teamConfig)===partyBefore,'Review mutated party');
  click('[data-preset-action="apply"]');must(!document.getElementById('presetTeamDialog').open,'Apply did not close');
  must(teamConfig.map(c=>c.id).join(',')==='1407,1413,1415,1409','Party not applied');
  must(teamConfig[1].build.lc==='24005'&&teamConfig[1].build.superimposition===3,'LC not committed');
+ must(teamConfig[1].build.eidolon===4,'Eidolon not committed');
  must(teamConfig[1].build.items.slice(0,4).map(p=>p.set).join(',')==='127,127,113,113','Mixed sets not committed');
  must(document.getElementById('lobbyTeam').querySelectorAll('[data-menu-slot]').length===4,'Party menu not refreshed');
  must(document.getElementById('gearShortcutName').textContent==='Castorice','Equipment shortcut stale');

@@ -1,0 +1,132 @@
+/* Evernight Stellar: crystal blue, orbit lavender, midnight purple. */
+:root { color-scheme: dark; --stellar-blue:#9fceff; --stellar-purple:#c3a6ff; }
+body { background:#111122; }
+.menu-sketch { background:linear-gradient(155deg,#141326 0%,#14182a 52%,#101522 100%); }
+.menu-sketch::before { width:100%; height:740px; background:linear-gradient(0deg,#14172a 0%,#14172a22 45%,transparent 80%),linear-gradient(90deg,#14132688 0%,#14132622 45%,#14132611 100%),url('assets/planarcadia-night.jpeg') center center/cover no-repeat; opacity:1; }
+.menu-sketch .lobby-top,.menu-sketch .lobby-intro { position:relative; }
+.menu-sketch .lobby-intro h1 { text-shadow:0 3px 22px #0c0c23,0 1px 4px #0c0c23; }
+.menu-sketch .mode-card { background:linear-gradient(150deg,#20233be8,#17182beb); backdrop-filter:blur(8px); }
+.brand.stellar-brand { display:flex; min-width:0; }
+.brand.stellar-brand .stellar-wordmark { display:block; width:clamp(210px,31vw,400px); height:auto; max-width:100%; object-fit:contain; }
+.menu-sketch .lobby-top {
+ display:flex; flex-direction:row; align-items:center; justify-content:space-between;
+ min-height:108px; height:auto; gap:24px; padding:12px 22px; margin:0 -22px;
+ border:0; border-bottom:1px solid #c3b6ee18;
+ background:linear-gradient(180deg,#11142673,#15192b26);
+ -webkit-backdrop-filter:blur(18px) saturate(125%);
+ backdrop-filter:blur(18px) saturate(125%);
+ box-shadow:0 16px 30px -24px #0c102566;
+}
+.menu-sketch .lobby-top .stellar-brand { flex:0 1 auto; }
+.menu-sketch .lobby-top .stellar-wordmark { width:clamp(235px,28vw,350px); filter:drop-shadow(0 2px 8px #14122655); }
+.menu-sketch .lobby-top .lobby-tools { margin-left:auto; align-items:center; }
+.menu-sketch .lobby-tools button,.menu-sketch .version-picker select {
+ background:#171c354d; border-color:#c6b4ec38; color:#e4dff6;
+ border-radius:8px; box-shadow:inset 0 1px #ffffff08;
+}
+.app > header {
+ height:auto; min-height:96px; padding:10px 16px; gap:16px;
+ background:linear-gradient(180deg,#171a2d99,#171a2d33);
+ border-bottom:1px solid #c3b6ee20;
+ -webkit-backdrop-filter:blur(18px) saturate(125%);
+ backdrop-filter:blur(18px) saturate(125%);
+}
+.app > header .stellar-wordmark { width:clamp(190px,23vw,300px); }
+@media(max-width:760px) {
+ .menu-sketch .lobby-top { margin:0; padding:14px 12px; min-height:0; flex-wrap:wrap; gap:12px; }
+ .menu-sketch .lobby-top .lobby-tools { width:auto; flex-wrap:wrap; }
+ .menu-sketch .lobby-top .stellar-wordmark { width:230px; }
+ .app > header { min-height:78px; padding:8px; gap:8px; flex-wrap:wrap; }
+}
+.menu-sketch .lobby-intro h1 { font-family:Georgia,'Times New Roman',serif; font-weight:400; letter-spacing:-1px; }
+.menu-sketch .lobby-intro h1 em { color:#cbb4f3; }
+.menu-sketch .mode-card { border-color:#ba9ce32d; border-radius:12px; }
+.menu-sketch .mode-card.active,.menu-sketch .mode-card.chosen { border-color:#c3a6ff; box-shadow:0 0 24px #9170d01c; }
+.party-and-gear .gear-shortcut { border:1px solid #bda3eb30; border-radius:14px; background:linear-gradient(145deg,#29213cee,#171427f2); }
+.menu-sketch .menu-party-card { position:relative; border-radius:12px; overflow:hidden; }
+.menu-party-card[data-eidolon-level]::after { content:attr(data-eidolon-level); position:absolute; top:10px; right:10px; pointer-events:none; background:#171127e8; color:#dbccff; border:1px solid #c3a6ff77; padding:5px 9px; border-radius:6px; font-size:12px; font-weight:700; }
+button:focus-visible,select:focus-visible,a:focus-visible { outline:2px solid #a8d4ff; outline-offset:4px; }
+.menu-sketch .begin-battle { background:linear-gradient(110deg,#b9d7ff,#c7a6ee); color:#1a142a; border-color:#e0ceff; border-radius:9px; }
+.team-preset-entry > button { background:linear-gradient(110deg,#b9c9ee,#b69bd8); border-color:#d0b9ed; color:#19162b; border-radius:9px; }
+#presetTeamDialog { background:linear-gradient(145deg,#1c1b30,#151b2b); border-color:#b29dd166; }
+dialog { border-color:#ae94dd55; border-radius:14px; }
+.eidolon-panel { padding:22px; margin:0 0 22px; border:1px solid #b294e340; border-radius:12px; background:radial-gradient(ellipse at top right,#5e408330,transparent 65%),#151224; }
+.eidolon-heading { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:18px; }
+.eidolon-heading h3 { margin:7px 0 0; font-family:Georgia,'Times New Roman',serif; font-size:24px; font-weight:400; }
+.eidolon-heading h3 span { color:#bcd7ff; font-family:system-ui,sans-serif; font-size:15px; margin-left:8px; }
+.eidolon-count { color:#cbb4ed; font-size:12px; white-space:nowrap; }
+.eidolon-options { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:9px; }
+.eidolon-options button { display:flex; flex-direction:column; align-items:center; gap:6px; padding:14px 4px; border:1px solid #afa0cb30; border-radius:9px; background:#201a30; color:#a49ab8; cursor:pointer; }
+.eidolon-options button>span { font-size:26px; line-height:1; }
+.eidolon-options button small { font-size:10px; }
+.eidolon-options button.unlocked { color:#d6c7fa; background:#342644; border-color:#ad87d567; }
+.eidolon-options button.selected { color:#e9f2ff; border-color:#a8ceff; background:linear-gradient(150deg,#384463,#45305d); box-shadow:0 0 16px #a685ed22; }
+.eidolon-options button:hover { border-color:#d4bcff; }
+.eidolon-summary { color:#d4c8e9; font-size:13px; margin:16px 0 7px; line-height:1.6; }
+.eidolon-note { color:#a69cbb; font-size:12px; line-height:1.7; margin:0; }
+.eidolon-options button>img { width:48px; height:48px; object-fit:contain; opacity:.65; }
+.eidolon-options button>span { display:grid; place-items:center; height:48px; }
+.eidolon-options button.unlocked>img,.eidolon-options button.selected>img { opacity:1; filter:drop-shadow(0 0 8px #b799f966); }
+.eidolon-details { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:20px; }
+.eidolon-detail { padding:16px; background:#1d1b2e; border:1px solid #a09bc42c; border-radius:10px; min-width:0; }
+.eidolon-detail.is-unlocked { background:linear-gradient(135deg,#28304a88,#30233d88); border-color:#bba1ee70; }
+.eidolon-detail-heading { display:flex; align-items:center; gap:12px; }
+.eidolon-detail-heading img { width:56px; height:56px; flex-shrink:0; object-fit:contain; padding:5px; background:#a3b7ff0b; border-radius:50%; }
+.eidolon-detail-heading small { color:#b1acd0; font-size:10px; letter-spacing:1px; }
+.eidolon-detail-heading h4 { color:#e9e5f6; font-size:15px; line-height:1.5; margin:4px 0 0; }
+.eidolon-detail p { color:#c0bdd3; font-size:13px; line-height:1.8; white-space:pre-line; overflow-wrap:anywhere; margin:12px 0 0; }
+.eidolon-source { display:inline-block; font-size:11px; margin-top:16px; color:#accaf2; }
+.preset-eidolon-panel { margin:20px 0; }
+.preset-eidolon-select { display:grid; gap:7px; font-size:12px; color:#c2b9db; }
+.preset-eidolon-select select { min-height:42px; background:#242039; border:1px solid #bda4df66; color:#eee8ff; border-radius:6px; padding:8px 12px; }
+/* Reserve logo space; the inherited full-width tool row used to squeeze it out. */
+.menu-sketch .lobby-top {
+ display:grid; grid-template-columns:minmax(0,1fr) auto;
+ align-items:center; justify-content:initial;
+}
+.menu-sketch .lobby-top .stellar-brand {
+ display:flex; width:min(350px,100%); min-width:0; justify-self:start;
+}
+.menu-sketch .lobby-top .stellar-wordmark {
+ width:100%; max-width:100%; height:auto; flex:none; opacity:1; visibility:visible;
+}
+.menu-sketch .lobby-top .lobby-tools {
+ display:flex; width:auto; margin:0; flex:none; flex-wrap:nowrap;
+ justify-content:flex-end; justify-self:end; gap:12px;
+}
+.menu-sketch .lobby-tools #lobbyGuideBtn { order:0; }
+.menu-sketch .lobby-tools .version-picker { order:1; }
+@media(prefers-reduced-motion:no-preference) {
+ .menu-sketch .lobby-intro { animation:stellar-menu-arrive .45s ease-out both; }
+ .menu-sketch .mode-cards { animation:stellar-menu-arrive .5s .06s ease-out both; }
+ .menu-sketch .party-and-gear { animation:stellar-menu-arrive .5s .12s ease-out both; }
+ .menu-sketch .mode-card,.menu-sketch .menu-party-card,
+ .menu-sketch .lobby-tools button,.menu-sketch .begin-battle {
+  transition:transform .18s ease-out,border-color .18s ease-out;
+ }
+ @media(hover:hover) and (pointer:fine) {
+  .menu-sketch .mode-card:hover,.menu-sketch .menu-party-card:hover { transform:translateY(-3px); }
+  .menu-sketch .lobby-tools button:hover,.menu-sketch .begin-battle:hover { transform:translateY(-2px); }
+ }
+}
+@keyframes stellar-menu-arrive {
+ from { opacity:0; transform:translateY(7px); }
+ to { opacity:1; transform:translateY(0); }
+}
+@media(max-width:540px) {
+ .menu-sketch .lobby-top { grid-template-columns:minmax(0,1fr); gap:4px; }
+ .menu-sketch .lobby-top .stellar-brand { width:250px; }
+ .menu-sketch .lobby-top .lobby-tools { gap:12px; padding-bottom:6px; }
+}
+@media(max-width:600px) {
+ .menu-sketch::before { height:820px; background-position:center top,center top,60% top; }
+ .eidolon-details { grid-template-columns:1fr; }
+ .eidolon-detail { padding:13px; }
+ .preset-eidolon-panel .eidolon-heading { flex-wrap:wrap; }
+ .brand.stellar-brand .stellar-wordmark { width:230px; }
+ .menu-sketch .lobby-top { gap:12px; flex-wrap:wrap; }
+ .eidolon-panel { padding:15px; }
+ .eidolon-options { grid-template-columns:repeat(4,minmax(0,1fr)); gap:7px; }
+ .eidolon-heading h3 { font-size:20px; }
+ .app header .stellar-brand .stellar-wordmark { width:165px; }
+}

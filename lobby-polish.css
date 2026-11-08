@@ -17,7 +17,7 @@
   height: 520px;
   background: linear-gradient(0deg, #10131e, #10131e00 80%),
     linear-gradient(90deg, #10131e, #10131e55 65%, #10131e33),
-    url('assets/planarcadia.jpeg') right top / cover no-repeat;
+    url('assets/planarcadia-night.jpeg') center center / cover no-repeat;
   opacity: .62;
 }
 .brand-icon.jade-icon { display: block; width: 44px; height: 44px; flex: 0 0 44px; object-fit: contain; }

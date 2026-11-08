@@ -15,13 +15,61 @@
 #enemyPicker .enemy-option small { white-space:normal; line-height:1.6; }
 #freeEnemyMore { width:100%; margin-top:16px; }
 #freeEnemySources { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0; }
+.free-node-heading,.free-node-active,.free-catalog-heading { display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; }
+.free-node-heading { margin:20px 0 16px; }
+.free-node-heading h3 { margin:8px 0; font-size:23px; }
+.free-node-heading p { color:#c3bbd6; line-height:1.6; font-size:14px; }
+.free-node-heading button { background:#54406d; border:1px solid #c7a8ff; min-height:46px; }
+.free-node-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+.free-node-tab { display:grid; grid-template-columns:auto auto; gap:5px 12px; min-height:58px; padding:10px 16px; border-radius:10px; border:1px solid #aa92c344; text-align:left; }
+.free-node-tab b { font-size:15px; }
+.free-node-tab small { grid-row:2; color:#b8afce; }
+.free-node-tab span { grid-column:2; grid-row:1 / 3; align-self:center; color:#e6c98c; font-size:23px; }
+.free-node-tab.chosen { background:#423558; border-color:#d5b6ff; box-shadow:0 0 20px #b49aff20; }
+.free-node-active { border-top:1px solid #a98cce33; padding-top:15px; }
+.free-node-active h3 { margin:0; font-size:23px; }
+.free-node-active>button { margin-left:auto; min-height:44px; font-size:12px; }
+.free-node-budget { display:flex; flex-wrap:wrap; gap:8px; }
+.free-node-budget span { padding:6px 9px; background:#b09ad41a; border:1px solid #ab94d13b; border-radius:6px; font-size:13px; }
+.free-node-budget b { font-weight:400; }
+.free-node-limits { color:#b8accb; font-size:13px; line-height:1.65; }
+.free-node-error { color:#ffc5ce; font-size:14px; line-height:1.6; }
+.free-node-error:empty { display:none; }
+.free-catalog-heading { margin:22px 0 12px; }
+.free-catalog-heading h4 { margin:0; font-size:17px; }
+.free-catalog-heading button { font-size:12px; min-height:44px; }
+.free-catalog-search { display:grid; grid-template-columns:minmax(0,1fr) 155px; gap:10px; }
+.free-catalog-search input,.free-catalog-search select { min-width:0; width:100%; min-height:46px; padding:10px; font:inherit; font-size:14px; color:#f0e9ff; background:#1b1b30; border:1px solid #ae96cf55; border-radius:8px; }
+.free-advanced { margin:14px 0; padding:12px; border:1px solid #bfa5df33; border-radius:8px; background:#14172666; }
+.free-advanced summary,.free-variant-details summary,.free-catalog-source summary { cursor:pointer; color:#c7b4e1; font-size:13px; line-height:1.6; }
+.free-advanced p { font-size:13px; line-height:1.7; color:#c1b6d2; }
+.free-variant-details { margin-top:7px; }
+.free-variant-details select { margin-top:8px; }
+.free-result-count { font-size:13px; color:#b9b0c9; }
+.free-catalog-source { margin:20px 0 0; }
+.enemy-option:disabled { opacity:.42; cursor:not-allowed; }
+.free-selected-actions button:disabled { display:none; }
+@media(max-width:760px) {
+ .free-node-heading { align-items:flex-start; }
+ .free-node-heading button { width:100%; font-size:15px; }
+ .free-node-active { gap:10px; }
+ .free-node-budget { order:3; width:100%; }
+ .free-catalog-search { grid-template-columns:minmax(0,1fr) 120px; }
+ .free-catalog-search input,.free-catalog-search select { font-size:16px; }
+ .free-node-tabs { gap:7px; }
+ .free-node-tab { flex:1 0 92px; }
+ .free-selected-enemy { grid-template-columns:36px minmax(0,1fr) auto; padding:10px; gap:9px; }
+ .free-selected-enemy img { width:36px; height:48px; }
+ .free-selected-actions { grid-column:auto; gap:4px; align-self:start; }
+ .free-selected-actions button { min-width:40px; min-height:44px; padding:6px; }
+ .free-selected-enemy small { margin:4px 0; font-size:12px; }
+ .free-variant-details summary { font-size:12px; }
+ .free-selected-enemy b { font-size:14px; }
+}
 @media(max-width:760px) {
  .free-enemy-filters { grid-template-columns:repeat(2,minmax(0,1fr)); }
  .free-enemy-filters label:last-child { grid-column:1 / -1; }
  .free-enemy-filters select,.free-selected-enemy select { font-size:16px; }
- .free-selected-enemy { grid-template-columns:48px minmax(0,1fr); }
- .free-selected-enemy img { width:48px; height:60px; }
- .free-selected-actions { grid-column:1 / -1; justify-content:flex-end; }
  #customCount { font-size:13px; }
  .enemy-search-row { flex-wrap:wrap; }
  .enemy-search-row input { min-width:0; width:100%; }

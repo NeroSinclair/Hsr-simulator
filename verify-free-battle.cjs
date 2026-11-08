@@ -28,6 +28,8 @@ run("showLobby();freeEnemyDraft.variants[customEnemies[0]]=selectedMonster.varia
 assert.equal(run('JSON.stringify(state.enemies[0])'),committed,'Menu changed live enemy');
 get('resetBtn').onclick();assert.equal(run('state.enemies[0].catalogId'),run('selectedMonster.variants[1].id'),'Reset must use committed variant');
 function action(kind,index){for(const listener of clickListeners)listener({target:{closest(selector){return selector==='[data-free-action]'?{dataset:{freeAction:kind,freeSlot:String(index)}}:null;}}});}
+action('duplicate',0);assert.equal(run('customEnemies.length'),1,'Boss duplication must respect one-boss limit');
+run("customEnemies=['Silvermane Soldier'];drawCustomEnemies()");
 action('duplicate',0);assert.equal(run('customEnemies.length'),2);action('remove',0);assert.equal(run('customEnemies.length'),1);
 for(let i=0;i<7;i++)action('duplicate',0);assert.equal(run('customEnemies.length'),5);
 run('beginBattle()');assert.equal(run('state.enemies.length'),5);assert.equal(run('new Set(state.enemies.map(e=>e.uid)).size'),5);

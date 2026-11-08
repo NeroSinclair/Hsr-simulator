@@ -16,7 +16,7 @@ const checks=`<script>
  Object.defineProperty(document.documentElement,'requestFullscreen',{configurable:true,value:async()=>{fullscreenCalls++;fullscreen=document.documentElement;}});
  Object.defineProperty(document,'exitFullscreen',{configurable:true,value:async()=>{exitCalls++;fullscreen=null;}});
  Object.defineProperty(screen,'orientation',{configurable:true,value:{lock:async value=>{must(value==='landscape','Wrong orientation');lockCalls++;},unlock:()=>{unlockCalls++;}}});
- lobbyMode='custom';renderLobby();customEnemies=['Borisin Warhead: Hoolay','Cocolia','Silvermane Soldier','Juvenile Sting','Argenti'];
+ lobbyMode='custom';renderLobby();customEnemies=['Borisin Warhead: Hoolay',...freeEnemyCatalog.filter(m=>m.kind==='elite').slice(0,2).map(m=>m.name),'Silvermane Soldier','Juvenile Sting'];
  change('freeBossPhases','3');click('beginBattle');await new Promise(r=>setTimeout(r,0));
  must(!document.getElementById('gameView').hidden,'Battle not started');
  if(innerWidth<=960){must(fullscreenCalls===1&&lockCalls===1,'Start did not request fullscreen/landscape');
@@ -25,7 +25,7 @@ const checks=`<script>
   must([...document.querySelectorAll('.mini-ult')].every(n=>n.getBoundingClientRect().height>=44),'Party ultimate touch targets too small');
   must([...document.querySelectorAll('.enemy-visual')].every(n=>n.getBoundingClientRect().height>=12),'Enemy art has no space');
   must(document.documentElement.scrollWidth<=innerWidth+1,'Horizontal overflow');
-  must(document.querySelectorAll('.boss-phase-badge').length>=2,'Phase badges missing');
+  must(document.querySelectorAll('.boss-phase-badge').length===1,'Boss phase badge missing');
   must(getComputedStyle(document.getElementById('log')).display==='none','Log occupies arena');click('battleLogBtn');must(getComputedStyle(document.getElementById('log')).display!=='none','Log toggle failed');click('battleLogBtn');
   click('battleDetailsBtn');must(getComputedStyle(document.getElementById('statusPanel')).display!=='none','Detail toggle failed');click('battleDetailsBtn');
  }

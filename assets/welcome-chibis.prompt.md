@@ -1,0 +1,8 @@
+# Welcome chibi illustration
+
+Generated with the built-in image_gen tool. Website asset: `welcome-chibis.png`.
+Design references: `evernight-reference.png` (Evernight) and `evanescia-reference.png` (Evanescia), from StarRailRes character portraits 1413 and 1505.
+
+Final prompt:
+
+Create a premium adorable chibi anime illustration for a fan-made Honkai Star Rail simulator welcome popup. Use attached reference 1 strictly as character design reference for Evernight: pale lavender-pink long hair, red eyes, dark purple black gothic outfit and dark floral hair accessory. Use reference 2 as character design reference for Evanescia: pink hair, tall long pink rabbit ears with red trim, red ribbon, white collared top with dark outfit and blue cape accent. Reimagine BOTH as extremely cute expressive 2.5-head-tall chibi girls, full body, seated side by side facing viewer, Evernight on left holding a tiny star-shaped relic looking gently smug, Evanescia on right cheerfully waving and holding a little drink. Playful tiny lavender sparkle doodles around them, clean polished crisp hand-drawn anime sticker illustration, soft pastel lavender and pink shading, adorable blush, excellent silhouette and readable small-screen faces. Composition wide roughly 3:2 centered, complete bodies and ears with generous empty transparent margins. No words, no labels, no logos, no background scene. Actual transparent background. This is a new illustration using references for costume and hair design only; do not copy their compositions. Save the generated asset and include its local output path in output_hint for integration into the current website.

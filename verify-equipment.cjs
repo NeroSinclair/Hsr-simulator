@@ -29,8 +29,10 @@ run("openGearPicker('planar');chooseGalleryGear('301')");
 change('sphere','level',15);change('sphere','initialCount',4);
 assert.equal(run('buildDraft[1].build.items[4].enhancement.level'),15);
 assert.equal(run('calculatedRelicSubs(buildDraft[1].build.items[4]).reduce((n,s)=>n+s.rollCount,0)'),9);
-// Substats are selected from roll tiers; no arbitrary number fields remain.
-assert.ok(!get('buildPanel').innerHTML.includes('type="number"'));
+// Quick fields allocate upgrade counts, never arbitrary final stat values.
+const quickNumbers=[...get('buildPanel').innerHTML.matchAll(/<input[^>]*type="number"[^>]*>/g)].map(match=>match[0]);
+assert.equal(quickNumbers.length,4);
+assert.ok(quickNumbers.every(html=>html.includes('data-quick-field="rolls"')&&html.includes('min="0"')&&/max="[0-5]"/.test(html)));
 assert.equal((get('buildPanel').innerHTML.match(/class="upgrade-roll /g)||[]).length,30);
 change('head','level',15);change('head','initialCount',4);change('head','tier',2,0);
 for(let i=0;i<5;i++){change('head','target',0,i);change('head','rollTier',2,i);}

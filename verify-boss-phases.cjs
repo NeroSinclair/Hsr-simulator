@@ -19,12 +19,12 @@ for(const count of [1,2,3]){
  }
 }
 get('freeBossPhases').value='3';get('freeBossPhases').onchange();
-run("customEnemies=['Borisin Warhead: Hoolay','Cocolia','Silvermane Soldier'];beginBattle()");
-assert.equal(run('state.enemies[1].bossPhases'),3);assert.equal(run('state.enemies[2].bossPhases'),undefined);
+run("customEnemies=['Borisin Warhead: Hoolay','Silvermane Soldier'];beginBattle()");
+assert.equal(run('state.enemies[0].bossPhases'),3);assert.equal(run('state.enemies[1].bossPhases'),undefined);
 get('freeBossPhases').value='1';get('freeBossPhases').onchange();
 assert.equal(run('state.enemies[0].bossPhases'),3,'Draft changed running battle');
 get('resetBtn').onclick();assert.equal(run('state.enemies[0].bossPhases'),3,'Reset discarded committed phases');
 run('beginBattle()');assert.equal(run('state.enemies[0].bossPhases'),1);
 get('freeBossPhases').value='4';get('freeBossPhases').onchange();assert.equal(run('freeEnemyDraft.bossPhases'),1);
 run("lobbyMode='as';lobbyPreset=0;beginBattle()");assert.ok(run('state.enemies.every(e=>!e.bossPhases)'),'Endgame changed');
-console.log('Passed: 1/2/3 boss phases, kill/win timing, no add respawn, AV continuity, multiple bosses, draft/reset isolation, bounds and unchanged endgame.');
+console.log('Passed: 1/2/3 boss phases, kill/win timing, no add respawn, AV continuity, draft/reset isolation, bounds and unchanged endgame.');

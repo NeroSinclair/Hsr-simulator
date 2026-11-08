@@ -10,7 +10,7 @@ const createEnemyBeforeBossPhases=createEnemy;
 createEnemy=function(name,index){
  const e=createEnemyBeforeBossPhases(name,index);
  if(state.mode==='custom'&&freeEnemyByName.get(name)?.kind==='boss'){
-  const count=Number(freeEnemyBattleConfig.bossPhases);
+  const count=Number(freeNodeBattleConfig().bossPhases);
   e.bossPhases=[1,2,3].includes(count)?count:1;e.bossPhase=1;
  }
  return e;

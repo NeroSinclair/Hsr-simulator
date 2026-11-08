@@ -1,0 +1,31 @@
+.lineup-preview { display: grid; grid-template-columns: minmax(0,1fr); gap: 16px; }
+.lineup-overview h3 { font-size: 19px; color: #eee0bd; margin: 0 0 8px; }
+.lineup-overview p,.preview-wave p,.training-lineup p { font-size: 13px; line-height: 1.7; margin: 8px 0; color: #bcc7da; }
+.lineup-overview > small { font-size: 12px; color: #d7c195; }
+.lineup-preview .preview-wave { min-width: 0; padding: 16px; border: 1px solid #bba98440; border-radius: 8px; background: #151d2c; }
+.preview-wave-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.preview-wave-heading h4 { font-size: 17px; margin: 0; color: #ebddba; }
+.preview-wave-heading > span { font-size: 12px; color: #bfcce0; }
+.lineup-preview .preview-enemy { min-width: 0; gap: 12px; padding: 10px; border: 1px solid #ffffff0a; }
+.lineup-preview .preview-enemy > .preview-enemy-name { flex: 1; min-width: 0; font-size: 14px; overflow-wrap: anywhere; }
+.preview-enemy b { font-weight: 500; }
+.preview-enemy small { display: block; font-size: 12px; color: #b4bfd2; margin-top: 4px; }
+.preview-quantity { font-size: 14px; line-height: 1.5; max-width: 110px; text-align: right; color: #edd39f; }
+.lineup-sources { display: grid; gap: 8px; }
+.preview-enemy-placeholder { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; color: #bdaf90; background: #242c3e; font-size: 24px; }
+.lineup-preview .preview-enemy-art { display: flex; flex: 0 0 112px; flex-direction: column; align-items: center; justify-content: center; width: 112px; min-height: 112px; border-radius: 8px; border: 1px solid #d8c19a26; background: radial-gradient(ellipse at center,#60647a55,#141c2c 80%); overflow: hidden; }
+.lineup-preview .preview-enemy-art img { display: block; width: 112px; height: 112px; padding: 6px; object-fit: contain; background: transparent; filter: drop-shadow(0 4px 6px #0007); }
+.lineup-preview .preview-enemy-art > small { font-size: 10px; margin: -8px 0 6px; color: #d8c19a; }
+.lineup-source { font-size: 12px; color: #d6c39e; }
+.training-lineup { padding: 16px; border: 1px solid #ffffff20; }
+.training-lineup summary { cursor: pointer; font-size: 13px; line-height: 1.7; color: #cbd4e4; }
+.menu-sketch .node-option { flex-wrap: wrap; }
+.menu-sketch .node-option small { white-space: normal; line-height: 1.6; }
+@media(max-width:760px) {
+ .menu-encounter .lobby-stage { padding: 14px; }
+ .lineup-preview .preview-wave { padding: 12px; }
+ .menu-sketch .node-option small { flex-basis: 100%; font-size: 12px; }
+ .lineup-preview .preview-enemy { padding: 8px; gap: 10px; }
+ .lineup-preview .preview-enemy-art { flex-basis: 80px; width: 80px; min-height: 80px; }
+ .lineup-preview .preview-enemy-art img { width: 80px; height: 80px; }
+}

@@ -67,6 +67,8 @@ assert.ok(run('state.enemies[0].revived && state.enemies[0].hp>0'));
 run('hit(state.team[0],state.enemies[0],999,0)');
 assert.equal(run('state.enemies[0].hp'),0);
 console.log('Passed all 15 presets, AA wave progression, roster IDs and Corrosion revive.');
+vm.runInContext(fs.readFileSync('endgame-lineups.js','utf8'), context);
+vm.runInContext(fs.readFileSync('encounter-preview.js','utf8'), context);
 vm.runInContext(fs.readFileSync('lobby.js','utf8'), context);
 assert.equal(document.getElementById('lobby').hidden,false);
 assert.equal(document.getElementById('gameView').hidden,true);

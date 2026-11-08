@@ -1,0 +1,28 @@
+.free-enemy-filters { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:16px 0; }
+.free-enemy-filters label,.free-selected-enemy label { display:grid; gap:6px; color:#cfbb96; font-size:13px; min-width:0; }
+.free-enemy-filters select,.free-selected-enemy select { width:100%; min-width:0; min-height:46px; padding:9px; background:#131e30; color:#e7edf5; border:1px solid #b6c6df55; font:inherit; }
+.free-enemy-tools { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:12px 0; }
+.free-enemy-tools select { min-height:46px; padding:8px; font-size:16px; background:#131e30; color:#e7edf5; border:1px solid #b6c6df55; }
+.free-enemy-tools button,#freeEnemyMore,.free-selected-actions button { min-height:46px; padding:10px 14px; touch-action:manipulation; }
+#freeEnemyCatalogNote,.free-enemy-help { color:#b9c6da; line-height:1.65; font-size:14px; }
+#freeEnemySelection { display:grid; gap:10px; margin:16px 0; }
+.free-selected-enemy { display:grid; grid-template-columns:64px minmax(0,1fr) auto; gap:12px; align-items:center; border:1px solid #d6b98166; background:#172236; padding:12px; }
+.free-selected-enemy img { width:64px; height:72px; object-fit:contain; }
+.free-selected-enemy b { display:block; overflow-wrap:anywhere; }
+.free-selected-enemy small { display:block; margin:6px 0; color:#bbcada; }
+.free-selected-actions { display:flex; gap:8px; }
+#enemyPicker .enemy-option { min-width:0; overflow-wrap:anywhere; }
+#enemyPicker .enemy-option small { white-space:normal; line-height:1.6; }
+#freeEnemyMore { width:100%; margin-top:16px; }
+#freeEnemySources { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0; }
+@media(max-width:760px) {
+ .free-enemy-filters { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .free-enemy-filters label:last-child { grid-column:1 / -1; }
+ .free-enemy-filters select,.free-selected-enemy select { font-size:16px; }
+ .free-selected-enemy { grid-template-columns:48px minmax(0,1fr); }
+ .free-selected-enemy img { width:48px; height:60px; }
+ .free-selected-actions { grid-column:1 / -1; justify-content:flex-end; }
+ #customCount { font-size:13px; }
+ .enemy-search-row { flex-wrap:wrap; }
+ .enemy-search-row input { min-width:0; width:100%; }
+}

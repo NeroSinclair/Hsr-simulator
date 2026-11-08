@@ -1,4 +1,5 @@
 'use strict';
+const enemyText=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // Image paths resolved from the enemy database; renders remain remote assets.
 const enemyImageIds={
  'Borisin Warhead: Hoolay':'2034010','Blood of the Fallen God: Yabuli':'5034010',
@@ -10,7 +11,22 @@ const enemyImageIds={
  'Daybreak Squadron: Cinderborne':'5013070','Pollux, Netherwing Husk, Ferry of Souls':'4014030',
  'Cyclonic Swarm Mother':'4053020','Abundance Sprite: Malefic Ape':'2023020',
  'Harbinger of Death: Swarm Nightmare':'3024030','Furbo Journalist':'5012110',
- 'Juvenile Sting':'8022010','Silvermane Guard':'1002040'
+ 'Juvenile Sting':'8022010','Silvermane Guard':'1002040',
+ 'Rocking Rebel':'5013010','Decaying Shadow':'8003040',
+ 'Noontide Gryphon':'4023010','Ichor Memosprite: Winged Serpent':'4063010',
+ 'Aurumaton Spectral Envoy':'2013020','Furiae Praetor':'4013010',
+ "Dreamjolt Troupe's Sweet Gorilla":'3003020','The Ascended':'2023030',
+ 'Alloy Pommy':'5012120',
+ 'Furiae Warrior':'4012010','Meteoric Eagle':'4022010','Automaton Hound':'1012010',
+ 'Abundance Sprite: Golden Hound':'2022040',"Black Tide's Corroded Axe":'4032030',
+ 'Shadow of "Hatred"':'4032020','Sableclaw Wolftrooper':'2032010','Eclipse Wolftrooper':'2032020',
+ 'Abundance Sprite: Wooden Lupus':'2022050','Mirage Fizzle Kid':'4052020',
+ 'Silvermane Cannoneer':'1002030','Silvermane Gunner':'1002050','Wraith Warden':'2002030',
+ 'The Honored':'3021020','The Shield':'3021040',
+ 'Blaze Out of Space':'8003020','Ice Out of Space':'8003010',
+ "Dreamjolt Troupe's Beyond Overcooked":'3003010','Memory Zone Meme "Shell of Faded Rage"':'3013010',
+ 'Ichor Memosprite: Pheasant':'4062010','Ichor Memosprite: Canine':'4062020',
+ "Frenzied Beast's Seed Germ":'5032010'
 };
 const enemyImage=name=>`https://www.gacha.gg/img/honkai-star-rail/dm/monster/mostericon-monster_${enemyImageIds[name]}.webp`;
 const enemyRenders={

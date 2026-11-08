@@ -1,0 +1,123 @@
+.mobile-battle-tool { display:none; }
+.boss-phase-badge { order:2; color:#ffe4a7; font-size:11px; padding:2px 8px; background:#151a2dcc; border:1px solid #e1c98777; border-radius:4px; }
+.battle-orientation-hint { position:fixed; z-index:80; left:16px; right:16px; top:18%; margin:auto; max-width:380px; padding:20px; background:#152034f5; border:1px solid #d7bd86; box-shadow:0 12px 50px #0008; }
+.battle-orientation-hint[hidden] { display:none; }
+.battle-orientation-hint b { font-size:20px; color:#f3dcae; }
+.battle-orientation-hint p { line-height:1.65; font-size:15px; }
+.battle-orientation-hint button { min-height:46px; margin:4px 4px 0 0; padding:10px; }
+@media (max-width:960px), (pointer:coarse) and (max-width:1200px) {
+ #gameView:not([hidden]) { display:grid; grid-template-rows:44px minmax(0,1fr) 110px 44px; height:100vh; height:100dvh; min-height:300px; width:100%; padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); overflow:hidden; background:#131522; }
+ #gameView .mobile-battle-tool[aria-expanded="true"] { background:#d6c194; color:#162033; }
+ #gameView > header { grid-row:1; position:relative; inset:auto; height:44px; padding:0 6px; gap:8px; min-width:0; background:#131724; }
+ #gameView > header .brand { min-width:0; gap:5px; font-size:12px; letter-spacing:0; flex:1; }
+ #gameView > header .brand > span { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+ #gameView > header .brand small,#gameView > header .local { display:none; }
+ #gameView > header .brand-icon { width:26px; height:26px; }
+ #gameView > header nav { margin-left:auto; gap:3px; flex-shrink:0; }
+ #gameView > header button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; height:44px; min-width:44px; padding:4px 7px; border-radius:5px; font-size:12px; }
+ #gameView #challengeBtn,#gameView #guideBtn { display:none; }
+ #gameView > .battle { grid-row:2; min-height:0; height:auto; width:100%; margin:0; overflow:hidden; }
+ #gameView .battle-heading { top:5px; left:70px; right:230px; }
+ #gameView .battle-heading .eyebrow { display:none; }
+ #gameView .battle-heading h1 { font-size:19px; margin:0; line-height:1.15; }
+ #gameView .battle-heading p { font-size:10px; margin:2px 0 0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+ #gameView .metrics { top:5px; right:8px; left:auto; width:auto; gap:14px; }
+ #gameView .metrics span { font-size:8px; letter-spacing:0; max-width:96px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+ #gameView .metrics strong { font-size:20px; margin:1px 0 0; line-height:1.1; }
+ #gameView .metrics > div { position:static; inset:auto; }
+ #gameView .timeline { top:8px; left:5px; width:52px; }
+ #gameView .timeline > .eyebrow,#gameView .formula { display:none; }
+ #gameView .turn { transform:none; width:34px; height:31px; margin:0 0 4px; padding:0; }
+ #gameView .turn.current { width:39px; height:36px; }
+ #gameView .turn:nth-child(n+5) { display:none; }
+ #gameView .turn img { transform:none; height:100%; width:100%; }
+ #gameView .turn .turn-symbol { font-size:18px; }
+ #gameView .turn-name { display:none; }
+ #gameView .turn b { right:-18px; top:8px; min-width:22px; padding:2px; font-size:8px; }
+ #gameView .active-character { left:7%; bottom:0; width:29%; height:90%; max-height:none; }
+ #gameView .active-caption,#gameView .battle-alert,#gameView .arena-image-status { display:none; }
+ #gameView .enemies { top:40px; bottom:18px; left:34%; right:8px; height:auto; gap:6px; align-items:stretch; }
+ #gameView .enemy-card { width:auto; flex:1 1 0; min-width:0; min-height:44px; max-height:100%; padding:3px 2px; display:flex; flex-direction:column; justify-content:flex-start; border:1px solid transparent; border-radius:5px; overflow:hidden; }
+ #gameView .enemy-card.selected { border-color:#e8d7a7; background:#1a203b66; }
+ #gameView .enemy-card.selected:after,#gameView .target-mark { display:none; }
+ #gameView .enemy-title { font-size:11px; line-height:11px; height:22px; min-height:22px; max-width:100%; margin:1px 0; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+ #gameView .weaknesses { font-size:12px; line-height:14px; letter-spacing:2px; margin:0; }
+ #gameView .boss-phase-badge { order:1; font-size:9px; line-height:12px; padding:0 3px; flex-shrink:0; }
+ #gameView .enemy-card .hp { width:96%; height:5px; min-height:5px; margin-top:2px; }
+ #gameView .enemy-card .tough { width:96%; height:3px; min-height:3px; margin-top:2px; }
+ #gameView .enemy-hp { font-size:9px!important; line-height:12px; margin-top:1px; max-width:100%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+ #gameView .enemy-visual { flex:1 1 0; min-height:0; width:100%; height:auto!important; margin:0; }
+ #gameView .enemy-model,#gameView .enemy-model.king,#gameView .enemy-model.horse,#gameView .enemy-model.tower { height:100%; width:100%; max-height:100%; margin:0; }
+ #gameView .enemy-art { width:100%; height:100%; object-fit:contain; }
+ #gameView .enemy-card > .unit-effects { min-height:0; margin:1px 0 0; max-height:16px; overflow:hidden; }
+ #gameView .enemy-card .effect-badge { width:14px; height:14px; font-size:9px; }
+ #gameView .battle-note { bottom:4px; right:8px; font-size:10px; gap:8px; }
+ #gameView .battle-note span:last-child { display:none; }
+ #gameView .command-deck { grid-row:3; position:relative; inset:auto; display:grid; grid-template-columns:minmax(0,1fr) minmax(228px,30%); gap:10px; align-items:end; height:auto; width:100%; padding:5px 8px; margin:0; background:#131724; z-index:6; }
+ #gameView .squad { grid-template-columns:repeat(4,minmax(0,1fr)); align-items:end; gap:5px; min-width:0; }
+ #gameView .member { min-height:94px; height:94px; min-width:0; border:1px solid #bdb7d144; border-radius:5px; background:#222739; overflow:hidden; }
+ #gameView .member.active { border-color:#ffe6a5; }
+ #gameView .member.active:before,#gameView .member.ally-target:after { display:none; }
+ #gameView .member-portrait { top:0; left:0; right:auto; height:45px; width:100%; object-fit:contain; opacity:.8; }
+ #gameView .member-content { padding:43px 4px 3px; background:linear-gradient(transparent,#111827); }
+ #gameView .member .element { top:3px; left:3px; font-size:11px; }
+ #gameView .member h3 { font-size:10px; line-height:12px; margin:0 0 2px; }
+ #gameView .member small { display:block; font-size:9px; line-height:11px; margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+ #gameView .member .bar { height:3px; margin:1px 0; }
+ #gameView .member .mini-ult { right:0; top:0; width:44px; height:44px; min-height:44px; min-width:44px; font-size:20px; border-width:1px; border-radius:6px; z-index:2; }
+ #gameView .member > .unit-effects { top:2px; left:2px; max-width:calc(100% - 46px); overflow:hidden; }
+ #gameView .member .effect-badge { width:14px; height:16px; font-size:9px; }
+ #gameView .actions { width:100%; min-width:0; margin:0; padding:0; }
+ #gameView .sp-line { position:static; width:100%; height:22px; display:flex; gap:8px; align-items:center; justify-content:flex-end; }
+ #gameView .sp-line > span { font-size:9px; }
+ #gameView .sp-line strong { font-size:15px; letter-spacing:1px; }
+ #gameView .action-buttons { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; align-items:stretch; }
+ #gameView .action,#gameView .action.skill,#gameView .action.ult { width:100%; height:70px; min-height:44px; padding:4px 2px; border:1px solid #d1c5e177; border-radius:7px; transform:none; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#252b40; box-shadow:none; }
+ #gameView .action .key { display:none; }
+ #gameView .action .action-icon { font-size:20px; line-height:22px; }
+ #gameView .action b { font-size:12px; line-height:17px; }
+ #gameView .action small { position:static; font-size:9px; line-height:12px; white-space:nowrap; }
+ #gameView .bottom-panel { grid-row:4; position:relative; display:flex; align-items:center; gap:8px; min-height:0; height:44px; padding:0 8px; background:#101624; }
+ #gameView .log-heading { flex:1; min-width:0; padding:0; }
+ #gameView .log-heading .eyebrow,#gameView #encounterNote { display:none; }
+ #gameView #status { display:block; float:none; font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+ #gameView .bottom-stats { display:flex; padding:0; border:0; margin:0; }
+ #gameView .bottom-stats > span { display:none; }
+ #gameView #enemyTurn { min-height:44px; margin:0; padding:5px 12px; font-size:12px; }
+ #gameView #log { display:none; position:fixed; z-index:25; bottom:48px; left:8px; right:8px; max-height:45dvh; overflow:auto; font-size:12px; line-height:1.7; background:#101827f5; border:1px solid #d8c6a277; padding:12px; }
+ #gameView.battle-log-open #log { display:block; }
+ #gameView > .status-panel { display:none; }
+ #gameView.battle-details-open > .status-panel { display:block; position:fixed; z-index:26; top:48px; bottom:48px; left:8px; right:8px; padding:16px; overflow:auto; border:1px solid #d8c6a277; background:#111827fa; }
+ #gameView > footer { display:none; }
+ #gameView .result { inset:5px 65px; padding:8px; z-index:10; overflow:auto; background:#121827ed; }
+ #gameView .result h2 { font-size:24px; margin:4px 0; }
+ #gameView .result p { font-size:12px; margin:4px 0; }
+ #gameView .result button { min-height:44px; }
+}
+@media (orientation:landscape) and (max-height:430px) and (max-width:1200px) {
+ #gameView .enemy-card > .unit-effects { display:none; }
+}
+@media (orientation:landscape) and (max-height:350px) and (max-width:1200px) {
+ #gameView:not([hidden]) { grid-template-rows:44px minmax(0,1fr) 96px 44px; }
+ #gameView .command-deck { padding:3px 8px; }
+ #gameView .member { height:88px; min-height:88px; }
+ #gameView .member-content { padding-top:36px; }
+ #gameView .member-portrait { height:38px; }
+ #gameView .action,#gameView .action.skill,#gameView .action.ult { height:60px; }
+ #gameView .enemy-title { display:block; white-space:nowrap; text-overflow:ellipsis; height:12px; min-height:12px; }
+ #gameView .enemies { top:34px; bottom:14px; }
+ #gameView .weaknesses { font-size:10px; line-height:12px; }
+ #gameView .enemy-hp { font-size:8px!important; line-height:9px; margin:0; }
+}
+@media(max-width:600px) and (orientation:portrait) {
+ #gameView > header .brand > span { display:none; }
+ #gameView .battle-heading { right:8px; }
+ #gameView .metrics { top:46px; right:8px; }
+ #gameView .enemies { top:100px; left:68px; right:6px; gap:3px; }
+ #gameView .active-character { display:none; }
+ #gameView .command-deck { grid-template-columns:minmax(0,1fr); grid-template-rows:100px 96px; gap:4px; padding:4px 6px; }
+ #gameView:not([hidden]) { grid-template-rows:44px minmax(0,1fr) 208px 44px; }
+ #gameView .actions { display:grid; grid-template-columns:85px minmax(0,1fr); align-items:center; gap:6px; }
+ #gameView .sp-line { height:auto; flex-direction:column; align-items:flex-start; gap:4px; }
+ #gameView .enemy-title { font-size:10px; }
+}

@@ -1,0 +1,122 @@
+.lc-picker-character { display: none; }
+.menu-sketch .lobby-top { flex-direction: column; align-items: stretch; gap: 20px; }
+.menu-sketch .lobby-top .brand { width: fit-content; max-width: 100%; font-size: clamp(20px, 2.8vw, 30px); letter-spacing: .3px; }
+.menu-sketch .lobby-top .brand > span { min-width: 0; white-space: normal; }
+.menu-sketch .lobby-top .brand small { display: block; font-size: 12px; line-height: 1.6; letter-spacing: .3px; margin-top: 8px; }
+.menu-sketch .lobby-tools { width: 100%; margin-left: 0; justify-content: space-between; }
+.version-picker { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #c6baa1; }
+.version-picker select { min-width: 88px; min-height: 48px; padding: 10px 14px; border: 1px solid #d6c8e044; border-radius: 8px; background: #101725; color: #eee1c3; font-size: 16px; cursor: pointer; }
+.version-coming-soon { padding: 28px 20px; border: 1px solid #bba98455; background: #d7c1950a; }
+.version-coming-soon strong { font-size: 26px; color: #eee1c3; }
+.menu-start-area .begin-battle:disabled { opacity: .6; cursor: not-allowed; }
+/* Phone menu: mode grid, party grid, equipment, encounter, then battle. */
+@media (max-width: 760px) {
+  .menu-sketch {
+    padding: env(safe-area-inset-top, 0px) max(16px, env(safe-area-inset-right, 0px)) max(24px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  }
+  .menu-sketch button, .menu-sketch select, .menu-sketch input,
+  #teamDialog button, #gearPicker button { touch-action: manipulation; }
+  .menu-sketch button, .menu-sketch select { min-height: 48px; }
+  .menu-sketch .lobby-top { min-height: 0; gap: 16px; padding: 20px 0; }
+  .menu-sketch .lobby-top .brand { font-size: 18px; letter-spacing: .7px; }
+  .menu-sketch .brand small { font-size: 9px; letter-spacing: .7px; }
+  .menu-sketch .lobby-tools { width: 100%; justify-content: space-between; gap: 10px; }
+  .menu-sketch .lobby-tools button { font-size: 14px; padding: 10px 18px; }
+  .menu-sketch .lobby-tools > span { font-size: 10px; }
+  .menu-sketch .lobby-intro { padding: 24px 0; flex-wrap: wrap; }
+  .menu-sketch .lobby-intro h1 { font-size: clamp(28px, 7vw, 36px); line-height: 1.2; }
+  .menu-mode-label { align-items: flex-start; gap: 8px; }
+  .menu-sketch .menu-mode-label .eyebrow { font-size: 12px; }
+  .menu-sketch .menu-mode-label > span:last-child { font-size: 12px !important; }
+  .menu-sketch .mode-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; overflow: visible; border: 0; }
+  .menu-sketch .mode-card, .menu-sketch .mode-card:last-child {
+    grid-column: auto; min-height: 164px; padding: 20px 14px;
+    border: 1px solid #bba98455; border-radius: 8px; text-align: left;
+  }
+  .menu-sketch .mode-card:last-child { grid-column: 1 / -1; min-height: 104px; }
+  .menu-sketch .mode-card h3 { font-size: clamp(22px, 5.6vw, 28px); min-height: 0; line-height: 1.2; overflow-wrap: normal; }
+  .menu-sketch .mode-card > small { font-size: 12px; line-height: 1.6; color: #d2d8e5; }
+  .menu-sketch .mode-number { font-size: 11px; margin-bottom: 18px; }
+  .menu-sketch .mode-illustration { font-size: 26px; opacity: .35; }
+  .party-and-gear { grid-template-columns: minmax(0, 1fr); margin-top: 28px; gap: 16px; }
+  .party-selection { padding: 14px; min-width: 0; }
+  .menu-sketch .lobby-team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .menu-sketch .portrait-only .party-art-button { height: clamp(210px, 55vw, 320px); display: block; }
+  .menu-party-card { border-radius: 8px; overflow: hidden; }
+  .menu-party-card.chosen { border: 2px solid #f0d69e; box-shadow: 0 0 0 2px #f0d69e33; }
+  .party-and-gear .gear-shortcut { display: flex; padding: 20px; }
+  .gear-shortcut > .eyebrow { font-size: 12px; }
+  .gear-shortcut h2 { font-size: 30px; margin: 12px 0 6px; }
+  .gear-shortcut > p { font-size: 14px; }
+  .gear-shortcut-icons { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 20px 0; }
+  .gear-shortcut-icons > .lobby-slot-choice { font-size: 14px; gap: 8px; }
+  .gear-shortcut-icons > button { min-height: 112px; padding: 14px 8px; gap: 10px; border-radius: 8px; }
+  .gear-shortcut-icons img { width: 48px; height: 52px; }
+  .gear-shortcut-icons > button > span:last-child { font-size: 14px; color: #e4e8f0; line-height: 1.4; }
+  .gear-shortcut > button { font-size: 20px; min-height: 56px; }
+  .gear-shortcut > small { font-size: 13px; color: #b7c0d0; }
+  .menu-encounter { margin-top: 24px; }
+  .menu-encounter > summary { min-height: 72px; padding: 14px 0; gap: 8px; flex-wrap: wrap; }
+  .menu-encounter > summary > span { font-size: 17px; }
+  .menu-encounter > summary > small { font-size: 12px; max-width: none; color: #b7c0d0; }
+  .menu-encounter .lobby-workspace { grid-template-columns: minmax(0, 1fr); }
+  .menu-sketch .node-options { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .menu-sketch .node-option { min-height: 76px; padding: 16px; }
+  .menu-sketch .node-option b { font-size: 17px; }
+  .menu-sketch .node-option small, .menu-sketch .node-option > span { font-size: 13px; }
+  .menu-sketch .menu-start-area { max-width: none; margin-top: 24px; }
+  .menu-start-area .technique-toggle { justify-content: flex-start; min-height: 56px; font-size: 14px; gap: 12px; }
+  .menu-start-area .technique-toggle input { width: 24px; height: 24px; flex-shrink: 0; }
+  .menu-start-area .begin-battle { min-height: 64px; font-size: 24px; clip-path: none; border-radius: 8px; }
+  .menu-sketch .lobby-footer { flex-wrap: wrap; gap: 10px; }
+  .menu-sketch .lobby-footer span:last-child { text-align: left; max-width: none; }
+  /* 16px fields prevent Safari from zooming when a control receives focus. */
+  .menu-sketch input, .menu-sketch select,
+  #teamDialog input, #teamDialog select,
+  #gearPicker input, #gearPicker select { font-size: 16px !important; min-height: 48px; }
+  #teamDialog, #gearPicker { max-width: calc(100vw - 16px); padding: 16px; }
+  #teamDialog .close, #gearPicker .close { min-width: 48px; min-height: 48px; flex-shrink: 0; }
+  #teamDialog .dialog-head, #gearPicker .dialog-head { gap: 12px; }
+  .character-choice-controls { grid-template-columns: minmax(0, 1fr); }
+  .character-choice-controls label { flex-wrap: wrap; font-size: 14px; }
+  .equipment-three { grid-template-columns: minmax(0, 1fr); }
+  .enhancement-pieces .piece-sub, .enhancement-controls { min-width: 0; }
+}
+
+/* The dialog owns phone scrolling, including controls and the full passive. */
+@media (max-width: 760px) {
+  #gearPicker.light-cone-picker[open] {
+    display: block; height: calc(100vh - 16px); height: calc(100dvh - 16px);
+    max-height: calc(100dvh - 16px); overflow-y: auto; overflow-x: hidden;
+    overscroll-behavior-y: contain; -webkit-overflow-scrolling: touch;
+    padding-bottom: max(20px, env(safe-area-inset-bottom, 0px));
+    scroll-padding-top: 16px;
+  }
+  .light-cone-picker .dialog-head { display: grid; grid-template-columns: minmax(0, 1fr) 80px 48px; align-items: start; }
+  .light-cone-picker #gearPickerTitle { font-size: 24px; line-height: 1.2; }
+  .light-cone-picker .lc-picker-character { display: block; width: 80px; height: 96px; object-fit: cover; border: 1px solid #bba98455; border-radius: 8px; background: #222c40; }
+  .light-cone-picker .picker-tools { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+  .light-cone-picker #gearPickerSearch { grid-column: 1 / -1; width: 100%; }
+  .light-cone-picker #unequipPicker { grid-column: 2; }
+  #gearPicker.light-cone-picker #gearPickerBody { overflow: visible; max-height: none; padding: 0; }
+  .light-cone-picker .lc-picker-layout { display: flex; flex-direction: column; gap: 24px; }
+  .light-cone-picker .lc-inventory-list { width: 100%; border-top: 1px solid #bba98455; }
+  .light-cone-picker .lc-inspector { order: -1; position: static; width: 100%; max-height: none; overflow: visible; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 12px; }
+  .light-cone-picker .lc-inspector-scroll { display: contents; }
+  .light-cone-picker .lc-inspector-scroll .lc-inspector-art { display: block; grid-column: 1; grid-row: 1 / 5; height: 190px; min-width: 0; }
+  .light-cone-picker .lc-inspector .lc-card-stars { grid-column: 1; grid-row: 5; font-size: 12px; }
+  .light-cone-picker .lc-inspector h3 { grid-column: 1; grid-row: 6; font-size: 18px; overflow-wrap: anywhere; }
+  .light-cone-picker .lc-inspector-path { grid-column: 1; grid-row: 7; font-size: 12px; }
+  .light-cone-picker .lc-inspector-stats { grid-column: 2; grid-row: 1; gap: 4px; }
+  .light-cone-picker .lc-inspector-stats > span { font-size: 10px; padding: 6px 3px; }
+  .light-cone-picker .lc-inspector-stats b { font-size: 15px; }
+  .light-cone-picker .lc-inspector .lc-passive-state { grid-column: 2; grid-row: 2; font-size: 12px; }
+  .light-cone-picker .lc-inspector h4 { grid-column: 2; grid-row: 3; font-size: 14px; }
+  .light-cone-picker .lc-inspector-scroll .lc-passive-description { grid-column: 2; grid-row: 4 / 7; max-height: none !important; overflow: visible !important; font-size: 13px; line-height: 1.65; }
+  .light-cone-picker .lc-engine-note { grid-column: 1 / -1; grid-row: 8; font-size: 12px; }
+  .light-cone-picker .lc-inspector > .lc-equip-button { grid-column: 2; grid-row: 7; align-self: end; margin: 0; min-height: 48px; font-size: 15px; }
+  .light-cone-picker .lc-inventory-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .light-cone-picker .lc-card-art { height: clamp(110px, 32vw, 170px); }
+  .light-cone-picker .lc-inventory-card > b { height: auto; min-height: 36px; font-size: 12px; padding: 0 6px; }
+  .light-cone-picker .lc-inventory-card > small { padding: 0 6px; font-size: 10px; }
+}
